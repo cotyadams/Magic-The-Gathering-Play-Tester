@@ -1,0 +1,38 @@
+.bottom-row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.hand {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    overflow-x: scroll;
+    height: 32vh;
+}
+
+.lands {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: scroll;
+    height: 32vh;
+    margin-right: 5vw;
+}
+.creatures {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.library {
+    height: 32vh;
+}
+
+.card-on-board {
+    height: 32vh;
+}
+
+.card-on-board-container {
+    display: flex;
+    justify-content: center;
+}
