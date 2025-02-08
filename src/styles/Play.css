@@ -10,6 +10,12 @@
     flex-flow: row-reverse nowrap;
     overflow-x: scroll;
     height: 32vh;
+    flex-flow: row nowrap;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .lands {
@@ -18,10 +24,31 @@
     overflow-x: scroll;
     height: 32vh;
     margin-right: 5vw;
+    flex-flow: row nowrap;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
 }
 .creatures {
     display: flex;
     flex-flow: row nowrap;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.non-creatures {
+    display: flex;
+    flex-flow: row nowrap;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .library {
@@ -35,4 +62,8 @@
 .card-on-board-container {
     display: flex;
     justify-content: center;
+}
+.board {
+    background-color: rgb(3, 3, 52);
+    height: 100vh;
 }

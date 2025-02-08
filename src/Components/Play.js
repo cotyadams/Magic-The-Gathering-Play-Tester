@@ -17,7 +17,7 @@ function Play() {
     const sharedState = useSelector((state) => state.sharedState.value)
     
     return (
-        <>
+        <div className="board">
             <div className="creatures">
                 {
                     sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((card, key) => (
@@ -50,7 +50,7 @@ function Play() {
                 <img src={backofcard} alt="library" className='library' onClick={() => drawCard(sharedState, dispatch)}/>
             </div>
             <img src={'s'} alt="log shared state" onClick={() => console.log(sharedState)} />
-        </>
+        </div>
         
     )
 }
