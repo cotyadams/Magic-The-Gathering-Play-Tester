@@ -47,9 +47,14 @@ function Play() {
                     ))) : <p>no hand</p>
                     }
                 </div>
-                <img src={backofcard} alt="library" className='library' onClick={() => drawCard(sharedState, dispatch)}/>
+                <img
+                    src={backofcard}
+                    alt="library"
+                    className='library'
+                    onClick={() => drawCard(sharedState, dispatch)}
+                />
             </div>
-            <img src={'s'} alt="log shared state" onClick={() => console.log(sharedState)} />
+            <button onClick={() => console.log(sharedState)}>Log State</button>
         </div>
         
     )

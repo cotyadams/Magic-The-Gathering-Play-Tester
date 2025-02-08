@@ -34,6 +34,8 @@
 .creatures {
     display: flex;
     flex-flow: row nowrap;
+    overflow-x: scroll;
+    height: 32vh;
     border: solid;
     border-color: rgb(147, 111, 18);
     border-width: 1px;
@@ -44,6 +46,8 @@
 .non-creatures {
     display: flex;
     flex-flow: row nowrap;
+    overflow-x: scroll;
+    height: 32vh;
     border: solid;
     border-color: rgb(147, 111, 18);
     border-width: 1px;

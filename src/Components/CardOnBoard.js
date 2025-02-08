@@ -1,8 +1,4 @@
-import react, {useState, useEffect, useRef} from "react"
-
-import { useDispatch, useSelector } from "react-redux";
-import { updateState } from "../store";
-
+import {useState, useEffect} from "react"
 function CardOnBoard({ card }) {
     const [rotation, setRotation] = useState(0);
     const [dimensions, setDimensions] = useState({ width: 23, height: 32 });
