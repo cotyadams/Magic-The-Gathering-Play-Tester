@@ -1,0 +1,9 @@
+.dropdown {
+    background-color: lightgray;
+    position: absolute;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-flow: column wrap;
+}
