@@ -22,8 +22,8 @@ function CardOnBoard({ card }) {
             }}
         >   
             <img
-                src={card.imageUrl}
-                alt={card.name}
+                src={card.card.imageUrl}
+                alt={card.card.name}
                 className="card-on-board"
                 onClick={handleTap}
                 onContextMenu={(e) => {
@@ -34,7 +34,7 @@ function CardOnBoard({ card }) {
                     transform: `rotate(${rotation}deg)`
                 }}
             />   
-            {isOpen && <ContextMenu />}
+            {isOpen && <ContextMenu card={card} />}
         </div>
     )
 }

@@ -27,8 +27,8 @@ function Play() {
             </div>
             <div className="non-creatures">
                 {
-                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card, key) => (
-                        <CardOnBoard card={card} key={key} />
+                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card) => (
+                        <CardOnBoard card={card} key={card.key} />
                     ))) : <p>no non-creatures</p>
                 }
             </div>
