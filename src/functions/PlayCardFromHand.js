@@ -16,7 +16,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
         let creatures = [
                 // or statement to take care of boardState being undefined
                 ...(tempState.boardState?.creatures || []),
-                        {card, key: date.getTime(), type: 'creature'}
+                        {card, key: date.getTime(), type: 'creatures'}
             ]
             // update temp state to move card from hand to boardState.creatures
             tempState = {
@@ -32,7 +32,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
         let lands = [
                 // or statement to take care of boardState being undefined
                 ...(tempState.boardState?.lands || []),
-                        {card, key: date.getTime(), type: 'land'}
+                        {card, key: date.getTime(), type: 'lands'}
         ]
         tempState = {
                 ...tempState,
@@ -46,7 +46,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
         // pre-define nonCreatures array
             let nonCreatures = [
                 ...(tempState.boardState?.nonCreatures || []),
-                {card, key: date.getTime(), type: 'non-creature'}
+                {card, key: date.getTime(), type: 'nonCreatures'}
             ]
         // edit the temporary state
             tempState = {

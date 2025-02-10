@@ -2,27 +2,21 @@ import '../styles/ContextMenu.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { updateState } from '../store'
+import CardLeavingBattlefield from '../functions/CardLeavingBattlefield';
+import CardIntoLibrary from '../functions/CardIntoLibrary';
 
 function ContextMenu({card}) {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
 
-    function CardToGraveyard(e) {
-        console.log('card', card)
-        let tempState = sharedState;
-        let graveyard = {
-            ...(tempState.graveyard || []),
-            card
-        }
-
-    }
+    
     return (
         <div className="dropdown">
             <div className="dropdown-content">
-                <button onClick={(e) => CardToGraveyard(e)}>move to graveyard</button>
-                <button onClick={() => console.log('graveyard')}>move to graveyard</button>
-                <button onClick={() => console.log('graveyard')}>move to graveyard</button>
+                <button onClick={() => CardLeavingBattlefield(card, 'graveyard', dispatch, sharedState)}>Move To Graveyard</button>
+                <button onClick={() => CardLeavingBattlefield(card, 'exile', dispatch, sharedState)}>Move To Exile</button>
+                <button onClick={() => CardLeavingBattlefield(card, 'remove from game', dispatch, sharedState)}>Remove From Game</button>
+                <button onClick={() => CardIntoLibrary(card, dispatch, sharedState)}>Shuffle Into Library</button>
             </div>
         </div>
     )
