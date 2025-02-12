@@ -15,7 +15,6 @@ function ContextMenu({card}) {
             <div className="dropdown-content">
                 <button onClick={() => CardLeavingBattlefield(card, 'graveyard', dispatch, sharedState)}>Move To Graveyard</button>
                 <button onClick={() => CardLeavingBattlefield(card, 'exile', dispatch, sharedState)}>Move To Exile</button>
-                <button onClick={() => CardLeavingBattlefield(card, 'remove from game', dispatch, sharedState)}>Remove From Game</button>
                 <button onClick={() => CardIntoLibrary(card, dispatch, sharedState)}>Shuffle Into Library</button>
             </div>
         </div>

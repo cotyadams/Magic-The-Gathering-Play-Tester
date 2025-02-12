@@ -1,15 +1,26 @@
-const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
+const PutCardOntoBattlefield = (card, dispatch, sharedState, updateState, zone) => {
         let indexOfCard = -1;
     let tempState = sharedState
     const date = new Date()
 
-        // search for card index from hand
-        for (let i = 0; i < sharedState.hand.length; i++) {
-            if (sharedState.hand[i].name === card.name) {
+        // search for card index from zone
+    if (card.card !== undefined) {
+        for (let i = 0; i < sharedState[zone].length; i++) {       
+            if (sharedState[zone][i].key === card.key) {
                 indexOfCard = i;
                 break;
             }
         }
+        card = card.card
+    } else {
+    for (let i = 0; i < sharedState[zone].length; i++) {       
+            if (sharedState[zone][i].name === card.name) {
+                indexOfCard = i;
+                break;  
+            }
+        }
+    }
+    console.log(card)
         // handle playing a creature card
     if (card.types.includes('Creature')) {
             // pre-defining the creature array
@@ -25,7 +36,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
                     ...tempState.boardState,
                     creatures
                 },
-                hand: tempState.hand.filter((card, index) => index !== indexOfCard)
+                [zone]: tempState[zone].filter((card, index) => index !== indexOfCard)
             }
     } else if (card.types.includes('Land') && !card.types.includes('Creature')) {
         // for lands
@@ -40,7 +51,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
                     ...tempState.boardState,
                     lands
                 },
-                hand: tempState.hand.filter((card, index) => index !== indexOfCard)
+                [zone]: tempState[zone].filter((card, index) => index !== indexOfCard)
             }
     } else { //for non-creature non-land cards
         // pre-define nonCreatures array
@@ -55,7 +66,7 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
                     ...tempState.boardState,
                     nonCreatures
                 },
-                hand: tempState.hand.filter((card, index) => index !== indexOfCard)
+                [zone]: tempState[zone].filter((card, index) => index !== indexOfCard)
             }
     }
     // update state with tempState object
@@ -63,4 +74,4 @@ const PlayCardFromHand = (card, dispatch, sharedState, updateState) => {
 
 }
 
-export default PlayCardFromHand
+export default PutCardOntoBattlefield

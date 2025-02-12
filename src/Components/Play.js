@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import '../styles/Play.css'
 
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +17,8 @@ import CardOnBoard from "./CardOnBoard";
 function Play() {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
+
+    const navigate = useNavigate();
     
     return (
         <div className="board">
@@ -27,8 +31,8 @@ function Play() {
             </div>
             <div className="non-creatures">
                 {
-                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card) => (
-                        <CardOnBoard card={card} key={card.key} />
+                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card, key) => (
+                        <CardOnBoard card={card} key={key} />
                     ))) : <p>no non-creatures</p>
                 }
             </div>
@@ -54,7 +58,11 @@ function Play() {
                     onClick={() => drawCard(sharedState, dispatch)}
                 />
             </div>
-            <button onClick={() => console.log(sharedState)}>Log State</button>
+            <div>
+                <button onClick={() => console.log(sharedState)}>Log State</button>
+                <button onClick={() => navigate('/graveyard')}>View Graveyard</button>
+                <button onClick={() => navigate('/exile')}>View Exile</button>
+            </div>
         </div>
         
     )

@@ -6,6 +6,7 @@ import './styles/index.css';
 
 import App from './App';
 import Play from './Components/Play';
+import SecondaryZone from './Components/SecondaryZone';
 
 import { Provider } from "react-redux";
 import store from './store.js'
@@ -20,6 +21,8 @@ root.render(
         <Routes>
           <Route path='/' exact element={<App />} />
           <Route path='/play' element={<Play />} />
+          <Route path='/graveyard' element={<SecondaryZone zone={'graveyard'} />} />
+          <Route path='/exile' element={<SecondaryZone zone={'exile'} />} />
         </Routes>
       </Router>
     </Provider>

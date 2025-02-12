@@ -5,14 +5,14 @@ import { updateState } from "../store";
 
 import PutCardOntoBattlefield from "../functions/PutCardOntoBattlefield";
 
-function CardInHand({ card }) {
+function CardInSecondaryZone({ card, zone }) {
 
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
 
     
     return ( 
-        <img src={card.imageUrl} alt={card.name} onClick={() => PutCardOntoBattlefield(card, dispatch, sharedState, updateState, 'hand')}/>     
+        <img src={card.card.imageUrl} alt={card.card.name} onClick={() => PutCardOntoBattlefield(card, dispatch, sharedState, updateState, zone)}/>     
     )
 }
-export default CardInHand;
+export default CardInSecondaryZone

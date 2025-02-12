@@ -2,7 +2,7 @@ import './styles/App.css';
 import axios from 'axios';
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import cardObjCreator from './functions/CardObjCreator';
 import shuffleDeck from './functions/shuffleDeck';
@@ -15,6 +15,8 @@ function App() {
   const sharedState = useSelector((state) => state.sharedState.value)
   
   const [inputValue, setInputValue] = useState('');
+
+  const navigate = useNavigate();
 
   const handleRequest = (card) => {
 
@@ -45,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Link to='/play' className='link'>play</Link>
+        <button onClick={() => navigate('/play')} className='button'>play</button>
       </header>
       <form action={() => onSubmit(inputValue)} className='form'>
           <textarea
