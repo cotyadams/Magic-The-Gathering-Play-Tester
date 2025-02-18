@@ -50,9 +50,17 @@ function App() {
       <header className="App-header">
         <button onClick={() => navigate('/play')} className='button'>play</button>
       </header>
-      <h1>sample text (copy and paste into the text box)</h1>
+      <h1
+        style={{
+          backgroundColor: '#282c34',
+          color: 'white',
+          margin: '0px'
+        }}
+      >sample text (copy and paste into the text box)</h1>
       <div style={{
-        whiteSpace: 'pre'
+        whiteSpace: 'pre',
+        backgroundColor: '#282c34',
+        color: 'white'
       }}>
         {text}
       </div>
