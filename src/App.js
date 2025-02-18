@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import cardObjCreator from './functions/CardObjCreator';
 import shuffleDeck from './functions/shuffleDeck';
+import text from './text';
 
 import { useDispatch, useSelector } from "react-redux";
 import { updateState } from "./store";
@@ -49,12 +50,19 @@ function App() {
       <header className="App-header">
         <button onClick={() => navigate('/play')} className='button'>play</button>
       </header>
+      <h1>sample text (copy and paste into the text box)</h1>
+      <div style={{
+        whiteSpace: 'pre'
+      }}>
+        {text}
+      </div>
       <form action={() => onSubmit(inputValue)} className='form'>
           <textarea
             type='text'
             value={inputValue}
             onChange={(e) => { setInputValue(e.target.value) }}
-            className='text-box'
+          className='text-box'
+          placeholder={text}
           />
           <button type='submit'>Submit</button>
         <button
