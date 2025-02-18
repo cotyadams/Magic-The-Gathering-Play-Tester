@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 
 import CardInSecondaryZone from "./CardInSecondaryZone"
 
+import '../styles/SecondaryZone.css'
+
 function SecondaryZone({zone}) {
     const dispatch = useDispatch()
     const sharedState = useSelector((state) => state.sharedState.value)
     return (
-    <div>
+    <div className="secondary-zone">
             
             {
                     sharedState[zone] ? (sharedState[zone].map((card, key) => (

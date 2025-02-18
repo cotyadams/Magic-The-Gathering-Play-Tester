@@ -34,7 +34,7 @@ function CardOnBoard({ card }) {
                     transform: `rotate(${rotation}deg)`
                 }}
             />   
-            {isOpen && <ContextMenu card={card} />}
+            {isOpen && <ContextMenu card={card} isOpen={isOpen} setIsOpen={setIsOpen}/>}
         </div>
     )
 }

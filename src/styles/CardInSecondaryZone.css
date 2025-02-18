@@ -1,0 +1,14 @@
+.secondary-dropdown {
+    background-color: lightgray;
+    position: absolute;
+}
+
+.secondary-dropdown-content {
+    display: flex;
+    flex-flow: column wrap;
+}
+.card-in-secondary-zone-container {
+    display: flex;
+    justify-content: center;
+    height: 32vh
+}
