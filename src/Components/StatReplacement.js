@@ -1,8 +1,10 @@
+import '../styles/StatReplacement.css'
 
-
-function StatReplacement({stat}) {
+function StatReplacement({replacementStats}) {
     return (
-        <h3 className="stat-replacement">7/3</h3>
+        <h3
+            className="stat-replacement"
+        >{replacementStats}</h3>
     );
 }
 

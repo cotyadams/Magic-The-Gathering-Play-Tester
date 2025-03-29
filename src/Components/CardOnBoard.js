@@ -2,12 +2,17 @@ import { useState, useEffect } from "react"
 
 import ContextMenu from "./ContextMenu";
 import StatReplacement from "./StatReplacement";
+import StatReplacementForm from "./StatReplacementForm";
+
+import '../styles/CardOnBoard.css'
 
 function CardOnBoard({ card }) {
     const [rotation, setRotation] = useState(0);
     const [dimensions, setDimensions] = useState({ width: 23, height: 32 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isStatsReplaced, setIsStatsReplaced] = useState(false);
+    const [isFormOn, setIsFormOn] = useState(false);
+    const [replacementStats, setReplacementStats] = useState('')
     
     const handleTap = () => {
         if (rotation === 0) setRotation(90);
@@ -21,7 +26,8 @@ function CardOnBoard({ card }) {
         <div
             className="card-on-board-container"
             style={{
-                width: `${dimensions.width}vh`
+                width: `${dimensions.width}vh`,
+                height: `${dimensions.height}vh`
             }}
         >   
             <img
@@ -44,8 +50,17 @@ function CardOnBoard({ card }) {
                     setIsOpen={setIsMenuOpen}
                     isStatsReplaced={isStatsReplaced}
                     setIsStatsReplaced={setIsStatsReplaced}
+                    setIsFormOn={setIsFormOn}
+                    isFormOn={isFormOn}
                 />}
-            {isStatsReplaced && <StatReplacement />}
+            {isFormOn && <StatReplacementForm
+                setIsFormOn={setIsFormOn}
+                isFormOn={isFormOn}
+                setReplacementStats={setReplacementStats}
+            />}
+            {isStatsReplaced && <StatReplacement
+                replacementStats={replacementStats}
+            />}
         </div>
     )
 }

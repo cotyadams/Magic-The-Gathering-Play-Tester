@@ -1,0 +1,7 @@
+.stat-replacement {
+    position: absolute;
+    right: 0px;
+    bottom: -5%;
+    background-color: black;
+    color: white;
+}
