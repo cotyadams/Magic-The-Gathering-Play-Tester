@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react"
+
 import ContextMenu from "./ContextMenu";
+import StatReplacement from "./StatReplacement";
 
 function CardOnBoard({ card }) {
     const [rotation, setRotation] = useState(0);
     const [dimensions, setDimensions] = useState({ width: 23, height: 32 });
-    const [isOpen, setIsOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isStatsReplaced, setIsStatsReplaced] = useState(false);
     
     const handleTap = () => {
         if (rotation === 0) setRotation(90);
@@ -28,13 +31,21 @@ function CardOnBoard({ card }) {
                 onClick={handleTap}
                 onContextMenu={(e) => {
                     e.preventDefault();
-                    setIsOpen(!isOpen);
+                    setIsMenuOpen(!isMenuOpen);
                 }}
                 style={{
                     transform: `rotate(${rotation}deg)`
                 }}
             />   
-            {isOpen && <ContextMenu card={card} isOpen={isOpen} setIsOpen={setIsOpen}/>}
+            {isMenuOpen &&
+                <ContextMenu
+                    card={card}
+                    isOpen={isMenuOpen}
+                    setIsOpen={setIsMenuOpen}
+                    isStatsReplaced={isStatsReplaced}
+                    setIsStatsReplaced={setIsStatsReplaced}
+                />}
+            {isStatsReplaced && <StatReplacement />}
         </div>
     )
 }

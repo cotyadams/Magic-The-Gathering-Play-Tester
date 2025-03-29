@@ -70,7 +70,6 @@ function App() {
             value={inputValue}
             onChange={(e) => { setInputValue(e.target.value) }}
           className='text-box'
-          placeholder={text}
           />
           <button type='submit'>Submit</button>
         <button

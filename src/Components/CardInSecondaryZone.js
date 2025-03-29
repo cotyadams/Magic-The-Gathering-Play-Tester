@@ -1,16 +1,10 @@
 import React, {useState, useEffect} from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { updateState } from "../store";
-
 import '../styles/CardInSecondaryZone.css'
 
 import SecondaryZoneMenu from "./SecondaryZoneMenu";
 
 function CardInSecondaryZone({ card, zone }) {
-
-    const dispatch = useDispatch();
-    const sharedState = useSelector((state) => state.sharedState.value)
 
     const [dimensions, setDimensions] = useState({ width: 23, height: 32 });
     const [isOpen, setIsOpen] = useState(false)
