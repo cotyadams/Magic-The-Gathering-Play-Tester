@@ -1,9 +1,9 @@
 import '../styles/StatReplacement.css'
 
-function StatReplacement({replacementStats}) {
+function StatReplacement({replacementStats, rotation}) {
     return (
         <h3
-            className="stat-replacement"
+            className={rotation === 0 ? "stat-replacement-verticle" : "stat-replacement-horizontal"}
         >{replacementStats}</h3>
     );
 }

@@ -60,6 +60,7 @@ function CardOnBoard({ card }) {
             />}
             {isStatsReplaced && <StatReplacement
                 replacementStats={replacementStats}
+                rotation={rotation}
             />}
         </div>
     )
