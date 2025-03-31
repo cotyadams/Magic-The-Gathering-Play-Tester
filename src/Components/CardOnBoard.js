@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 
+// component imports
 import ContextMenu from "./ContextMenu";
 import StatReplacement from "./StatReplacement";
 import StatReplacementForm from "./StatReplacementForm";
+import ExpandedCard from "./ExpandedCard";
 
+// styles import
 import '../styles/CardOnBoard.css'
 
 function CardOnBoard({ card }) {
@@ -13,6 +16,7 @@ function CardOnBoard({ card }) {
     const [isStatsReplaced, setIsStatsReplaced] = useState(false);
     const [isFormOn, setIsFormOn] = useState(false);
     const [replacementStats, setReplacementStats] = useState('')
+    const [isExpanded, setIsExpanded] = useState(false);
     
     const handleTap = () => {
         if (rotation === 0) setRotation(90);
@@ -52,6 +56,8 @@ function CardOnBoard({ card }) {
                     setIsStatsReplaced={setIsStatsReplaced}
                     setIsFormOn={setIsFormOn}
                     isFormOn={isFormOn}
+                    isExpanded={isExpanded}
+                    setIsExpanded={setIsExpanded}
                 />}
             {isFormOn && <StatReplacementForm
                 setIsFormOn={setIsFormOn}
@@ -61,6 +67,10 @@ function CardOnBoard({ card }) {
             {isStatsReplaced && <StatReplacement
                 replacementStats={replacementStats}
                 rotation={rotation}
+            />}
+            {isExpanded && <ExpandedCard
+                card={card}
+                setIsExpanded={setIsExpanded}
             />}
         </div>
     )

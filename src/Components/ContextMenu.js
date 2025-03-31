@@ -12,7 +12,9 @@ function ContextMenu({
     setIsStatsReplaced,
     isStatsReplaced,
     setIsFormOn,
-    isFormOn
+    isFormOn,
+    isExpanded,
+    setIsExpanded
 }) {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
@@ -33,6 +35,10 @@ function ContextMenu({
                     setIsOpen(!isOpen)
                     CardIntoLibrary(card, dispatch, sharedState)
                 }}>Shuffle Into Library</button>
+                <button onClick={() => {
+                    setIsOpen(!isOpen)
+                    setIsExpanded(true)
+                }}>Expand Card</button>
                 {card.type === 'creatures' ?
                 (
                     isStatsReplaced ?
