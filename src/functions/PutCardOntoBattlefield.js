@@ -20,7 +20,6 @@ const PutCardOntoBattlefield = (card, dispatch, sharedState, updateState, zone) 
             }
         }
     }
-    console.log(card)
         // handle playing a creature card
     if (card.types.includes('Creature')) {
             // pre-defining the creature array
