@@ -8,8 +8,8 @@
 
 .stat-replacement-horizontal {
     position: absolute;
-    left: 0px;
-    bottom: -5vh;
+    left: -1vh;
+    bottom: -1vh;
     transform: rotate(90deg);
     color: white;
     background-color: black;

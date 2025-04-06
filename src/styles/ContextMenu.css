@@ -1,9 +1,10 @@
 .dropdown {
     background-color: lightgray;
     position: absolute;
+    z-index: 2;
 }
 
 .dropdown-content {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
 }

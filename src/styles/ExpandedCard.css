@@ -1,4 +1,10 @@
 .expanded-card-container{
-    position: fixed;
-    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+}
+.close-expanded-card-button {
+    width:fit-content;
 }

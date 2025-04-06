@@ -21,8 +21,7 @@
 .lands {
     display: flex;
     flex-flow: row nowrap;
-    overflow-x: scroll;
-    height: 32vh;
+    height:fit-content;
     margin-right: 5vw;
     flex-flow: row nowrap;
     border: solid;
@@ -30,43 +29,80 @@
     border-width: 1px;
     padding: 10px;
     border-radius: 20px;
+    overflow-x: scroll;
+    overflow-y: visible;
 }
+
+.lands-no-cards {
+    display: flex;
+    flex-flow: row nowrap;
+    height:32vh;
+    margin-right: 5vw;
+    flex-flow: row nowrap;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+
 .creatures {
     display: flex;
     flex-flow: row nowrap;
+    height:fit-content;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
+    overflow-y: auto;
     overflow-x: scroll;
+}
+
+.creatures-no-cards {
+    display: flex;
+    flex-flow: row nowrap;
     height: 32vh;
     border: solid;
     border-color: rgb(147, 111, 18);
     border-width: 1px;
     padding: 10px;
     border-radius: 20px;
+    overflow-y: auto;
+    overflow-x: scroll;
 }
 
 .non-creatures {
     display: flex;
     flex-flow: row nowrap;
-    overflow-x: scroll;
-    height: 32vh;
+    height:fit-content;
     border: solid;
     border-color: rgb(147, 111, 18);
     border-width: 1px;
     padding: 10px;
     border-radius: 20px;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+.non-creatures-no-cards{
+    display: flex;
+    flex-flow: row nowrap;
+    height:32vh;
+    border: solid;
+    border-color: rgb(147, 111, 18);
+    border-width: 1px;
+    padding: 10px;
+    border-radius: 20px;
+    overflow-x: scroll;
+    overflow-y: visible;
 }
 
 .library {
     height: 32vh;
 }
-
-.card-on-board {
-    height: 32vh;
-}
-
-.card-on-board-container {
-    display: flex;
-    justify-content: center;
-}
 .board {
     background-color: rgb(3, 3, 52);
+    height: fit-content;
 }

@@ -1,3 +1,10 @@
 .card-on-board-container {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-on-board {
+    height: 32vh;
 }

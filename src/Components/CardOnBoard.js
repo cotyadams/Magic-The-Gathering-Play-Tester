@@ -26,7 +26,7 @@ function CardOnBoard({ card }) {
     useEffect(() => {
         rotation === 90 ? setDimensions({ width: 32, height: 23 }) : setDimensions({ width: 23, height: 32 });
     }, [rotation])
-    return ( 
+    return ( <>
         <div
             className="card-on-board-container"
             style={{
@@ -68,11 +68,12 @@ function CardOnBoard({ card }) {
                 replacementStats={replacementStats}
                 rotation={rotation}
             />}
-            {isExpanded && <ExpandedCard
+        </div>
+        {isExpanded && <ExpandedCard
                 card={card}
                 setIsExpanded={setIsExpanded}
-            />}
-        </div>
+        />}
+    </>
     )
 }
 export default CardOnBoard

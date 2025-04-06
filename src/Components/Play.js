@@ -22,14 +22,14 @@ function Play() {
     
     return (
         <div className="board">
-            <div className="creatures">
+            <div className={sharedState.boardState?.creatures ? 'creatures' : 'creatures-no-cards'}>
                 {
                     sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((card, key) => (
                         <CardOnBoard card={card} key={key} />
                     ))) : <p>no creatures</p>
                 }
             </div>
-            <div className="non-creatures">
+            <div className={sharedState.boardState?.nonCreatures ? 'non-creatures' : 'non-creatures-no-cards'}>
                 {
                     sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card, key) => (
                         <CardOnBoard card={card} key={key} />
@@ -37,7 +37,7 @@ function Play() {
                 }
             </div>
             <div className="bottom-row">
-                <div className="lands">
+                <div className={sharedState.boardState?.lands ? 'lands' : 'lands-no-cards'}>
                 {
                     sharedState.boardState?.lands ? (sharedState.boardState.lands.map((card, key) => (
                         <CardOnBoard card={card} key={key} />

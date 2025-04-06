@@ -1,10 +1,18 @@
-function ExpandedCard({card, setIsExpanded}) {
+import '../styles/ExpandedCard.css'
+
+function ExpandedCard({ card, setIsExpanded }) {
     return (
         <div className="expanded-card-container">
-            <button onClick={() => {
+            <button
+                className='close-expanded-card-button'
+                onClick={() => {
                 setIsExpanded(false)
             }}>X</button>
-            <img src={card.card.imageUrl} alt="expanded card"/>
+            <img
+                src={card.card.imageUrl}
+                alt="expanded card"
+                className="expanded-card"
+            />
         </div>
     )
 }
