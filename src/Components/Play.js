@@ -12,35 +12,38 @@ import drawCard from "../functions/drawCard";
 
 // components
 import CardInHand from "./CardInHand";
-import CardOnBoard from "./CardOnBoard";
+import CardArray from "./CardArray";
 
 function Play() {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
-
+    
     const navigate = useNavigate();
     
     return (
         <div className="board">
             <div className={sharedState.boardState?.creatures ? 'creatures' : 'creatures-no-cards'}>
                 {
-                    sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((card, key) => (
-                        <CardOnBoard card={card} key={key} />
+                    sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((cardArray, key) => (
+                        <CardArray
+                            cardArray={[cardArray]}
+                            key={key}
+                        />
                     ))) : <p>no creatures</p>
                 }
             </div>
             <div className={sharedState.boardState?.nonCreatures ? 'non-creatures' : 'non-creatures-no-cards'}>
                 {
-                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card, key) => (
-                        <CardOnBoard card={card} key={key} />
+                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((cardArray, key) => (
+                        <CardArray cardArray={[cardArray]} key={key} />
                     ))) : <p>no non-creatures</p>
                 }
             </div>
             <div className="bottom-row">
                 <div className={sharedState.boardState?.lands ? 'lands' : 'lands-no-cards'}>
                 {
-                    sharedState.boardState?.lands ? (sharedState.boardState.lands.map((card, key) => (
-                        <CardOnBoard card={card} key={key} />
+                    sharedState.boardState?.lands ? (sharedState.boardState.lands.map((cardArray, key) => (
+                        <CardArray cardArray={[cardArray]} key={key} />
                     ))) : <p>no lands</p>
                 }
                 </div>

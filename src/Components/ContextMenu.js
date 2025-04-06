@@ -13,8 +13,8 @@ function ContextMenu({
     isStatsReplaced,
     setIsFormOn,
     isFormOn,
-    isExpanded,
-    setIsExpanded
+    setIsExpanded,
+    setIsAttaching,
 }) {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
@@ -38,6 +38,10 @@ function ContextMenu({
                 <button onClick={() => {
                     setIsOpen(!isOpen)
                     setIsExpanded(true)
+                }}>Expand Card</button>
+                <button onClick={() => {
+                    setIsOpen(!isOpen)
+                    setIsAttaching(true)
                 }}>Expand Card</button>
                 {card.type === 'creatures' ?
                 (
