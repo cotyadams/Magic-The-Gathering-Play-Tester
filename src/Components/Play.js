@@ -24,9 +24,9 @@ function Play() {
         <div className="board">
             <div className={sharedState.boardState?.creatures ? 'creatures' : 'creatures-no-cards'}>
                 {
-                    sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((cardArray, key) => (
+                    sharedState.boardState?.creatures ? (sharedState.boardState.creatures.map((card, key) => (
                         <CardArray
-                            cardArray={[cardArray]}
+                            cardArray={card}
                             key={key}
                         />
                     ))) : <p>no creatures</p>
@@ -34,16 +34,16 @@ function Play() {
             </div>
             <div className={sharedState.boardState?.nonCreatures ? 'non-creatures' : 'non-creatures-no-cards'}>
                 {
-                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((cardArray, key) => (
-                        <CardArray cardArray={[cardArray]} key={key} />
+                    sharedState.boardState?.nonCreatures ? (sharedState.boardState.nonCreatures.map((card, key) => (
+                        <CardArray cardArray={card} key={key} />
                     ))) : <p>no non-creatures</p>
                 }
             </div>
             <div className="bottom-row">
                 <div className={sharedState.boardState?.lands ? 'lands' : 'lands-no-cards'}>
                 {
-                    sharedState.boardState?.lands ? (sharedState.boardState.lands.map((cardArray, key) => (
-                        <CardArray cardArray={[cardArray]} key={key} />
+                    sharedState.boardState?.lands ? (sharedState.boardState.lands.map((card, key) => (
+                        <CardArray cardArray={card} key={key} />
                     ))) : <p>no lands</p>
                 }
                 </div>

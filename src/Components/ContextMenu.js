@@ -2,11 +2,15 @@ import '../styles/ContextMenu.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 
+import { updateState } from '../store';
+
 import CardLeavingBattlefield from '../functions/CardLeavingBattlefield';
 import CardIntoLibrary from '../functions/CardIntoLibrary';
+import SearchBoard from '../functions/SearchBoard';
 
 function ContextMenu({
     card,
+    cardArray,
     isOpen,
     setIsOpen,
     setIsStatsReplaced,
@@ -14,7 +18,6 @@ function ContextMenu({
     setIsFormOn,
     isFormOn,
     setIsExpanded,
-    setIsAttaching,
 }) {
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
@@ -25,11 +28,16 @@ function ContextMenu({
             <div className="dropdown-content">
                 <button onClick={() => {
                     setIsOpen(!isOpen)
-                    CardLeavingBattlefield(card, 'graveyard', dispatch, sharedState)
+                    CardLeavingBattlefield(
+                        card,
+                        'graveyard',
+                        dispatch,
+                        sharedState
+                    )
                 }}>Move To Graveyard</button>
                 <button onClick={() => {
                     setIsOpen(!isOpen)
-                    CardLeavingBattlefield(card, 'exile', dispatch, sharedState)
+                    CardLeavingBattlefield(card, cardArray, 'exile', dispatch, sharedState)
                 }}>Move To Exile</button>
                 <button onClick={() => {
                     setIsOpen(!isOpen)
@@ -41,8 +49,22 @@ function ContextMenu({
                 }}>Expand Card</button>
                 <button onClick={() => {
                     setIsOpen(!isOpen)
-                    setIsAttaching(true)
-                }}>Expand Card</button>
+                    dispatch(updateState({
+                        ...sharedState,
+                        attachState:
+                        {isAttaching: true,
+                            cardBeingAttached: SearchBoard(sharedState, card).cardGroup}
+                        }))
+                }}>Attach Group to Another Card</button>
+                <button onClick={() => {
+                    setIsOpen(!isOpen)
+                    dispatch(updateState({
+                        ...sharedState,
+                        attachState:
+                        {isAttaching: true,
+                            cardBeingAttached: [SearchBoard(sharedState, card).singleCard]}
+                        }))
+                }}>Attach Card to Another Card</button>
                 {card.type === 'creatures' ?
                 (
                     isStatsReplaced ?
