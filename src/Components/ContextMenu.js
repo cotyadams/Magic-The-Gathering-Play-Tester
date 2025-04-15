@@ -37,7 +37,7 @@ function ContextMenu({
                 }}>Move To Graveyard</button>
                 <button onClick={() => {
                     setIsOpen(!isOpen)
-                    CardLeavingBattlefield(card, cardArray, 'exile', dispatch, sharedState)
+                    CardLeavingBattlefield(card, 'exile', dispatch, sharedState)
                 }}>Move To Exile</button>
                 <button onClick={() => {
                     setIsOpen(!isOpen)
