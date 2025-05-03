@@ -50,8 +50,9 @@ function CardOnBoard({ card }) {
             const cardBeingAttached = sharedState.attachState.cardBeingAttached
 
             let results = SearchBoard(sharedState, cardBeingAttached[0])
+            console.log(results)
             // remove cardBeingAttached from the board
-            tempState.boardState[results.singleCard.type][results.groupIndex].splice(results.cardIndex, cardBeingAttached.length)
+            tempState.boardState[results.type][results.groupIndex].splice(results.cardIndex, cardBeingAttached.length)
             
             // cleanup empty arrays
             tempState.boardState[results.singleCard.type] = tempState.boardState[results.singleCard.type].filter((node) => (

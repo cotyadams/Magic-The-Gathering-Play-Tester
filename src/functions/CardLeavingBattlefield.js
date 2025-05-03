@@ -9,7 +9,6 @@ function CardLeavingBattlefield(card, destination, dispatch, sharedState) {
 
     // remove card
     const result = SearchBoard(tempState, card);
-    //  
     tempState.boardState[result.type][result.groupIndex] = tempState.boardState[result.type][result.groupIndex].filter((node) => (
             node.key !== card.key
     ))
