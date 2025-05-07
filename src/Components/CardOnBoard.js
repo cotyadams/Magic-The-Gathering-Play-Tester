@@ -38,7 +38,6 @@ function CardOnBoard({ card }) {
 
             // search board for correct card
             const searchBoardResults = SearchBoard(tempState, targetCard)
-            console.log(searchBoardResults.type)
             // replace that cards array with the new attached array
             tempState.boardState[searchBoardResults.type][searchBoardResults.groupIndex]
             =
@@ -50,7 +49,6 @@ function CardOnBoard({ card }) {
             const cardBeingAttached = sharedState.attachState.cardBeingAttached
 
             let results = SearchBoard(sharedState, cardBeingAttached[0])
-            console.log(results)
             // remove cardBeingAttached from the board
             tempState.boardState[results.type][results.groupIndex].splice(results.cardIndex, cardBeingAttached.length)
             

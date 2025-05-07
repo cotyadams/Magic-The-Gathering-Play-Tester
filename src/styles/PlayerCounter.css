@@ -1,0 +1,10 @@
+.counter-button {
+    height: fit-content;
+    align-self: center;
+}
+
+.single-counter-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+}

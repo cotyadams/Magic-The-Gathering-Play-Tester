@@ -106,3 +106,22 @@
     background-color: rgb(3, 3, 52);
     height: fit-content;
 }
+
+.player-counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.placeholder-text {
+    color: white;
+}
+
+.library-text {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 0px;
+}
