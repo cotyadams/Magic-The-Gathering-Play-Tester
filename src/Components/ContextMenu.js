@@ -7,10 +7,11 @@ import { updateState } from '../store';
 import CardLeavingBattlefield from '../functions/CardLeavingBattlefield';
 import CardIntoLibrary from '../functions/CardIntoLibrary';
 import SearchBoard from '../functions/SearchBoard';
+import ReturnToOrigin from '../functions/ReturnToOrigin';
+import ReturnToHand from '../functions/ReturnToHand';
 
 function ContextMenu({
     card,
-    cardArray,
     isOpen,
     setIsOpen,
     setIsStatsReplaced,
@@ -22,7 +23,7 @@ function ContextMenu({
     const dispatch = useDispatch();
     const sharedState = useSelector((state) => state.sharedState.value)
 
-    
+    const searchResults = SearchBoard(sharedState, card)
     return (
         <div className="dropdown">
             <div className="dropdown-content">
@@ -53,7 +54,7 @@ function ContextMenu({
                         ...sharedState,
                         attachState:
                         {isAttaching: true,
-                            cardBeingAttached: SearchBoard(sharedState, card).cardGroup}
+                            cardBeingAttached: searchResults.cardGroup}
                         }))
                 }}>Attach Group to Another Card</button>
                 <button onClick={() => {
@@ -62,9 +63,20 @@ function ContextMenu({
                         ...sharedState,
                         attachState:
                         {isAttaching: true,
-                            cardBeingAttached: [SearchBoard(sharedState, card).singleCard]}
+                            cardBeingAttached: [searchResults.singleCard]}
                         }))
                 }}>Attach Card to Another Card</button>
+                <button
+                    onClick={() => {
+                        setIsOpen(!isOpen)
+                        ReturnToHand(
+                            sharedState,
+                            dispatch,
+                            updateState,
+                            searchResults
+                        )
+                    }}
+                >Return To Hand</button>
                 {card.type === 'creatures' ?
                 (
                     isStatsReplaced ?
@@ -80,7 +92,24 @@ function ContextMenu({
                         }}>Turn On Stat Replacement</button>
                 )
                 :
-                <></>}
+                    <></>}
+                {
+                    searchResults.type !== card.type ? 
+                        <button
+                            onClick={() => {
+                                setIsOpen(!isOpen)
+                                ReturnToOrigin(
+                                    searchResults,
+                                    sharedState,
+                                    card,
+                                    dispatch,
+                                    updateState
+                                )
+                            }}
+                        >Return To Origin</button>
+                        :
+                        <></>
+                }
             </div>
         </div>
     )

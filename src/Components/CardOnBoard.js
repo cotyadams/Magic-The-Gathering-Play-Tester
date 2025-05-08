@@ -26,7 +26,6 @@ function CardOnBoard({ card }) {
     const [isFormOn, setIsFormOn] = useState(false);
     const [replacementStats, setReplacementStats] = useState('')
     const [isExpanded, setIsExpanded] = useState(false);
-    const [cardArrayState, setCardArrayState] = useState([]);
 
     
     const handleSingleClick = () => {
@@ -43,8 +42,6 @@ function CardOnBoard({ card }) {
             =
             [...searchBoardResults.cardGroup, ...tempState.attachState.cardBeingAttached];
 
-            // set cardArrayState to the array for passing down
-            setCardArrayState(searchBoardResults.cardGroup) 
 
             const cardBeingAttached = sharedState.attachState.cardBeingAttached
 
@@ -106,7 +103,6 @@ function CardOnBoard({ card }) {
             {isMenuOpen &&
                 <ContextMenu
                     card={card}
-                    cardArray={cardArrayState}
                     isOpen={isMenuOpen}
                     setIsOpen={setIsMenuOpen}
                     isStatsReplaced={isStatsReplaced}
