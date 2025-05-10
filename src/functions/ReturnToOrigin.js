@@ -8,8 +8,6 @@ function ReturnToOrigin(
     let tempState = structuredClone(sharedState);
 
     tempState.boardState[searchResults.type][searchResults.groupIndex] = tempState.boardState[searchResults.type][searchResults.groupIndex].filter((c) => {
-        console.log('card', c)
-        console.log('result card', searchResults.singleCard)
        return c.key !== searchResults.singleCard.key;
     })
     tempState.boardState[card.type].push([card])

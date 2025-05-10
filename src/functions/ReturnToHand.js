@@ -9,7 +9,6 @@ function ReturnToHand(
         c.key !== searchResults.singleCard.key
     ))
     tempState.hand.push(searchResults.singleCard.card)
-    console.log('state', tempState)
     dispatch(updateState(tempState))
 }
 
